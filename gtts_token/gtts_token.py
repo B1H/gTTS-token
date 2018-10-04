@@ -52,7 +52,7 @@ class Token:
         if self.token_key is not None:
             return self.token_key
 
-        response = requests.get("https://translate.google.com/")
+        response = requests.get("https://translate.google.com/",verify=False)
         line = response.text.split('\n')[-1]
         tkk_expr = re.search(".*?(TKK=.*?;)W.*?", line).group(1)
 
